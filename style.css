@@ -357,16 +357,6 @@ span {
   align-items: center;
 }
 
-.about-img2 {
-  position: relative;
-  width: 25rem;
-  height: 25rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .about-img img {
   width: 90%;
   border-radius: 50%;
@@ -837,6 +827,14 @@ section:nth-child(odd) .animate.scroll,
 }
 
 @media (max-width: 768px) {
+  .skills-row .skills-column {
+    flex: 1 1 100%;
+  }
+
+  .contact form .input-box .input-field {
+    width: 100%;
+  }
+
   .header {
     background: var(--bg-color);
   }
