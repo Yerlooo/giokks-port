@@ -410,29 +410,43 @@ document
   .forEach((button) =>
     button.addEventListener("click", () => render(button.dataset.panel)),
   );
+
 document.querySelector("#save-content").addEventListener("click", async () => {
   syncFields();
+
   const serialized = JSON.stringify(content);
-  if (window.portfolioApiAvailable) {
-    try {
-      const response = await fetch("/api/content", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: serialized,
-      });
-      if (!response.ok) throw new Error("Server rejected the content.");
-      try { localStorage.setItem("portfolioContent", serialized); } catch { /* Server copy is canonical. */ }
-      status.textContent = "Tersimpan di server. Muat ulang website untuk melihat perubahan.";
-    } catch {
-      status.textContent = "Gagal menyimpan ke server. Pastikan server.py masih berjalan.";
-    }
+  const token = prompt("Masukkan token CMS untuk menyimpan perubahan.");
+
+  if (!token) {
+    status.textContent = "Penyimpanan dibatalkan.";
     return;
   }
+
+  status.textContent = "Menyimpan perubahan...";
+
   try {
+    const response = await fetch("/api/content", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-cms-token": token,
+      },
+      body: serialized,
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        response.status === 401
+          ? "Token CMS salah atau belum dikonfigurasi."
+          : `Gagal menyimpan (HTTP ${response.status}).`
+      );
+    }
+
     localStorage.setItem("portfolioContent", serialized);
-    status.textContent = "Tersimpan hanya di browser ini. Jalankan server.py agar dapat dibuka dari perangkat lain.";
-  } catch {
-    status.textContent = "Penyimpanan browser penuh. Kurangi ukuran gambar, lalu coba lagi.";
+    status.textContent = "Konten berhasil disimpan ke server.";
+  } catch (error) {
+    status.textContent = error.message || "Gagal menyimpan konten.";
   }
 });
+
 render("home");
