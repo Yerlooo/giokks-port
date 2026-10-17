@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CMS Portofolio Gio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cms.css" />
+  </head>
+  <body class="cms-page">
+    <header class="cms-header">
+      <a href="index.html" class="logo">GB <span>CMS</span></a
+      ><a class="cms-back" href="index.html">Lihat website ↗</a>
+    </header>
+    <main class="cms-shell">
+      <div class="cms-heading">
+        <p class="cms-eyebrow">CONTENT MANAGEMENT</p>
+        <h1>Kelola <span>portofolio</span></h1>
+        <p>Pilih bagian website, ubah kontennya, lalu simpan.</p>
+      </div>
+      <div class="cms-layout">
+        <nav class="cms-menu" aria-label="Bagian portofolio">
+          <button class="cms-menu-item active" data-panel="home">Home</button>
+          <button class="cms-menu-item" data-panel="about">About</button>
+          <button class="cms-menu-item" data-panel="journey">Journey</button>
+          <button class="cms-menu-item" data-panel="skills">Skills</button>
+          <button class="cms-menu-item" data-panel="projects">Projects</button>
+          <button class="cms-menu-item" data-panel="contact">Contact</button>
+        </nav>
+        <section class="cms-panel" aria-live="polite">
+          <div class="cms-panel-head">
+            <div>
+              <p class="cms-eyebrow" id="panel-kicker">HOME</p>
+              <h2 id="panel-title">Home</h2>
+              <p id="panel-description">
+                Atur judul dan perkenalan pada halaman utama.
+              </p>
+            </div>
+          </div>
+          <div id="cms-fields"></div>
+          <div class="cms-actions">
+            <button id="save-content" class="cms-save">Simpan perubahan</button
+            ><span id="editor-status" role="status"></span>
+          </div>
+        </section>
+      </div>
+      <p class="cms-storage-note">
+        Konten CMS dan gambar tersimpan di server lokal saat situs dijalankan melalui server.py.
+      </p>
+    </main>
+    <script src="cms-loader.js?v=20260618-2"></script>
+  </body>
+</html>

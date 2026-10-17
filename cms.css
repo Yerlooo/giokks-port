@@ -1,0 +1,311 @@
+.cms-page {
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+.cms-header {
+  height: 8rem;
+  padding: 0 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-color);
+  border-bottom: 0.1rem solid rgba(198, 209, 102, 0.2);
+}
+.cms-header .logo {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.cms-header .logo span,
+.cms-heading h1 span {
+  color: var(--main-color);
+}
+.cms-back {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+.cms-back:hover {
+  color: var(--main-color);
+}
+.cms-shell {
+  width: min(112rem, 92%);
+  margin: 0 auto;
+  padding: 5rem 0 7rem;
+}
+.cms-heading {
+  margin-bottom: 3rem;
+}
+.cms-eyebrow {
+  color: var(--main-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+.cms-heading h1 {
+  margin: 0.8rem 0;
+  font-size: clamp(3.2rem, 5vw, 4.8rem);
+  line-height: 1.2;
+}
+.cms-heading > p:last-child {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.6rem;
+}
+.cms-layout {
+  display: grid;
+  grid-template-columns: 23rem minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+.cms-layout > * { min-width: 0; }
+.cms-menu {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid rgba(198, 209, 102, 0.32);
+  border-radius: 0.8rem;
+  background: rgba(92, 130, 26, 0.18);
+}
+.cms-menu-item {
+  width: 100%;
+  padding: 1.3rem 1.5rem;
+  border-radius: 0.5rem;
+  text-align: left;
+  color: var(--text-color);
+  background: transparent;
+  font:
+    500 1.6rem "Poppins",
+    sans-serif;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.cms-menu-item:hover,
+.cms-menu-item.active {
+  color: var(--bg-color);
+  background: var(--main-color);
+}
+.cms-panel {
+  min-width: 0;
+  padding: 2.8rem;
+  border: 1px solid rgba(198, 209, 102, 0.38);
+  border-radius: 0.8rem;
+  background: rgba(92, 130, 26, 0.14);
+}
+.cms-panel-head {
+  padding-bottom: 2rem;
+  margin-bottom: 2.2rem;
+  border-bottom: 1px solid rgba(198, 209, 102, 0.22);
+}
+.cms-panel-head h2 {
+  font-size: 2.8rem;
+  margin: 0.5rem 0;
+}
+.cms-panel-head > div > p:last-child {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.45rem;
+}
+#cms-fields {
+  display: grid;
+  gap: 1.6rem;
+}
+.cms-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.cms-field input,
+.cms-field textarea {
+  width: 100%;
+  min-height: 4.8rem;
+  padding: 1.2rem 1.4rem;
+  color: var(--text-color);
+  background: var(--bg-color);
+  border: 1px solid rgba(198, 209, 102, 0.48);
+  border-radius: 0.5rem;
+  font:
+    400 1.5rem "Poppins",
+    sans-serif;
+}
+.cms-field input:focus,
+.cms-field textarea:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 0.2rem rgba(198, 209, 102, 0.14);
+}
+.cms-field textarea {
+  min-height: 11rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+.cms-list-group {
+  display: grid;
+  gap: 1.2rem;
+}
+.cms-list-skills {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.cms-list-skills .cms-list-heading {
+  grid-column: 1/-1;
+}
+.cms-list-heading,
+.cms-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.cms-list-heading {
+  padding-bottom: 0.5rem;
+}
+.cms-list-heading h3 {
+  font-size: 2rem;
+}
+.cms-item {
+  min-width: 0;
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.7rem;
+  border: 1px solid rgba(198, 209, 102, 0.35);
+  border-radius: 0.6rem;
+  background: rgba(15, 27, 7, 0.45);
+}
+.cms-list-skills .cms-item {
+  aspect-ratio: 1/1;
+  align-content: center;
+  padding: 1.3rem;
+}
+.cms-item-top {
+  padding-bottom: 0.4rem;
+}
+.cms-item-top strong {
+  min-width: 0;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  overflow-wrap: anywhere;
+}
+.cms-project-images {
+  display: grid;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(198, 209, 102, 0.2);
+}
+.cms-project-images > strong { color: var(--main-color); font-size: 1.45rem; }
+.cms-project-images > p { color: rgba(255,255,255,.6); font-size: 1.25rem; }
+.cms-image-picker {
+  display: inline-flex;
+  width: max-content;
+  padding: 0.9rem 1.3rem;
+  color: var(--bg-color);
+  background: var(--main-color);
+  border-radius: 0.5rem;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+.cms-image-picker input { display: none; }
+.cms-image-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 1rem; }
+.cms-image-tile { min-width: 0; display: grid; gap: 0.6rem; padding: 0.7rem; border: 1px solid rgba(198,209,102,.3); border-radius: 0.5rem; }
+.cms-image-tile img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 0.3rem; }
+.cms-image-tile .cms-remove { justify-self: start; }
+.cms-add,
+.cms-remove {
+  padding: 0.7rem 1.2rem;
+  color: var(--bg-color);
+  background: var(--main-color);
+  border-radius: 0.5rem;
+  font:
+    500 1.35rem "Poppins",
+    sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.cms-add:hover,
+.cms-remove:hover {
+  filter: brightness(1.12);
+}
+.cms-remove {
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.cms-hint {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 1.3rem;
+}
+.cms-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 2.2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(198, 209, 102, 0.22);
+}
+.cms-save {
+  min-height: 4.8rem;
+  padding: 0 2rem;
+  color: var(--bg-color);
+  background: var(--main-color);
+  border: 0.2rem solid var(--main-color);
+  border-radius: 0.6rem;
+  font:
+    600 1.6rem "Poppins",
+    sans-serif;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.cms-save:hover {
+  color: var(--main-color);
+  background: var(--bg-color);
+}
+#editor-status {
+  color: var(--main-color);
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+.cms-storage-note {
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+  .cms-header {
+    height: 7rem;
+    padding: 0 4%;
+  }
+  .cms-shell {
+    width: 92%;
+    padding-top: 3.5rem;
+  }
+  .cms-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .cms-menu {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+  .cms-menu-item {
+    text-align: center;
+    padding: 1.1rem 0.5rem;
+    font-size: 1.4rem;
+  }
+  .cms-panel {
+    padding: 2rem;
+  }
+  .cms-heading > p:last-child,
+  .cms-storage-note,
+  #editor-status { overflow-wrap: anywhere; }
+}
+@media (max-width: 420px) {
+  .cms-heading h1 {
+    font-size: 3.4rem;
+  }
+  .cms-menu-item {
+    font-size: 1.25rem;
+  }
+}

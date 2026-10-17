@@ -7,46 +7,35 @@ menuIcon.onclick = () => {
   navbar.classList.toggle("active");
 };
 
-//scroll sections
-let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll("header nav a");
-
-window.onscroll = () => {
+// Keep each section's reveal animation after its first appearance.
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("header nav a[href^='#']");
+const updateScrollState = () => {
   sections.forEach((sec) => {
     let top = window.scrollY;
     let offset = sec.offsetTop - 100;
     let height = sec.offsetHeight;
     let id = sec.getAttribute("id");
 
+    if (top + window.innerHeight > sec.offsetTop + 80) sec.classList.add("show-animate");
     if (top >= offset && top < offset + height) {
-      //active navbar links
       navLinks.forEach((links) => {
         links.classList.remove("active");
-        document.querySelector("header nav a[href*=" + id + "]").classList.add("active");
+        if (links.getAttribute("href") === `#${id}`) links.classList.add("active");
       });
-      //active sections for animation on scroll
-      sec.classList.add("show-animate");
-    }
-    // if want to use animation that repeats on scroll use this
-    else {
-      sec.classList.remove("show-animate");
     }
   });
 
-  //sticky header
-  let header = document.querySelector("header");
-
-  header.classList.toggle("sticky", window.scrollY > 100);
-
-  //remove toggle icon and navbar when click navbar links (sroll)
+  document.querySelector("header").classList.toggle("sticky", window.scrollY > 100);
   menuIcon.classList.remove("bx-x");
   navbar.classList.remove("active");
 
-  //animation footer on scroll
-  let footer = document.querySelector("footer");
-
-  footer.classList.toggle("show-animate", this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
+  if (window.innerHeight + window.scrollY >= document.scrollingElement.scrollHeight - 2) {
+    document.querySelector("footer").classList.add("show-animate");
+  }
 };
+window.addEventListener("scroll", updateScrollState, { passive: true });
+window.addEventListener("load", updateScrollState);
 
 function showAlert() {
   Swal.fire({
